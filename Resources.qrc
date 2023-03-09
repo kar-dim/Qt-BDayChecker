@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>assets/kawaii.jpg</file>
+        <file>assets/naruto.jpg</file>
+    </qresource>
+</RCC>
