@@ -2,5 +2,8 @@
     <qresource prefix="/">
         <file>assets/kawaii.jpg</file>
         <file>assets/naruto.jpg</file>
+        <file>stylesheets/application.qss</file>
+        <file>assets/sound.png</file>
+        <file>assets/sound_off.png</file>
     </qresource>
 </RCC>

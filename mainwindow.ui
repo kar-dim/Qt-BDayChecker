@@ -19,6 +19,9 @@
   <property name="windowTitle">
    <string>Birthday/Name day Checker</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="lb_KawaiiPic">
     <property name="geometry">
@@ -61,40 +64,78 @@
    <widget class="QLabel" name="lb_found_text">
     <property name="geometry">
      <rect>
-      <x>320</x>
+      <x>290</x>
       <y>10</y>
-      <width>411</width>
+      <width>541</width>
       <height>71</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Titillium Web</family>
-      <pointsize>36</pointsize>
+      <family>Lucida Calligraphy</family>
+      <pointsize>34</pointsize>
+      <bold>false</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>Placeholder</string>
     </property>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>920</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuTest">
-    <property name="title">
-     <string>FIle</string>
+   <widget class="QListWidget" name="listWidget">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>120</y>
+      <width>551</width>
+      <height>241</height>
+     </rect>
     </property>
-    <addaction name="actionImport_Birthdays"/>
-    <addaction name="actionExport_Birthdays"/>
+    <property name="font">
+     <font>
+      <family>Lucida Calligraphy</family>
+      <pointsize>30</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255,255,255, 0.2);
+border-radius: 15px;</string>
+    </property>
    </widget>
-   <addaction name="menuTest"/>
+   <widget class="QPushButton" name="btn_music">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>10</y>
+      <width>51</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="Resources.qrc">
+      <normaloff>:/assets/sound.png</normaloff>:/assets/sound.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>32</width>
+      <height>32</height>
+     </size>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+   </widget>
   </widget>
   <action name="actionImport_Birthdays">
    <property name="text">
