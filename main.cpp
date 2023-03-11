@@ -117,8 +117,8 @@ int main(int argc, char *argv[])
         SharedData::peopleList.append(lineToShow);
     }
     //close files
-    if (audioSourceFile.isOpen())
-        audioSourceFile.close();
+    if (SharedData::audioSourceFile.isOpen())
+        SharedData::audioSourceFile.close();
     if (bdayFile.isOpen())
         bdayFile.close();
     if (logFile.isOpen())
