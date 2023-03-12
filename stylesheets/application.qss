@@ -1,17 +1,9 @@
 QPushButton#btn_music {
-    background-color: rgba(255,255,255,0.4);
+    background-color: rgba(255,255,255,0.5);
     border-radius: 10px;
-    border: 1px solid #aaaaaa;
+    border: none;
 }
 
 QPushButton#btn_music:hover {
     background-color: rgba(255,255,255,0.7);
-}
-
-QPushButton#btn_music:checked {
-    background-image: url(:/assets/sound.png);
-}
-
-QPushButton#btn_music:!checked {
-    background-image: url(:/assets/sound_off.png);
 }

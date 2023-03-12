@@ -123,6 +123,9 @@ int main(int argc, char *argv[])
         bdayFile.close();
     if (logFile.isOpen())
         logFile.close();
+    //if no bdays found -> don't show gui at all
+    if (SharedData::peopleList.isEmpty())
+        return 0;
 
     //create the GUI
     MainWindow w;

@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    //setup audio player for music
     player = new QMediaPlayer;
     audioOutput = new QAudioOutput;
     player->setAudioOutput(audioOutput);
@@ -19,8 +20,8 @@ MainWindow::MainWindow(QWidget *parent)
         ui->btn_music->setEnabled(false);
         ui->btn_music->setVisible(false);
     } else {
-        ui->btn_music->toggle();
-        //check if audio file is really an audio file? probably done from Qt automatically
+        ui->btn_music->toggle(); //turn on
+        //TODO check if audio file is really an audio file? probably done from Qt automatically
         player->setSource(QUrl::fromLocalFile(SharedData::audioSourceFile.fileName()));
         player->play();
     }
@@ -36,10 +37,14 @@ MainWindow::MainWindow(QWidget *parent)
 }
 
 void MainWindow::playOrPauseMusic(bool isButtonChecked) {
-    if(isButtonChecked)
+    if(isButtonChecked){
+        ui->btn_music->setIcon(QIcon(":/assets/sound.png"));
         this->player->play();
-    else
+    }
+    else {
+        ui->btn_music->setIcon(QIcon(":/assets/sound_off.png"));
         this->player->pause();
+    }
 }
 
 MainWindow::~MainWindow()
