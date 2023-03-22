@@ -81,7 +81,7 @@
      <string notr="true"/>
     </property>
     <property name="text">
-     <string>Placeholder</string>
+     <string/>
     </property>
    </widget>
    <widget class="QListWidget" name="listWidget">
@@ -137,16 +137,6 @@ border-radius: 15px;</string>
     </property>
    </widget>
   </widget>
-  <action name="actionImport_Birthdays">
-   <property name="text">
-    <string>Import Birthdays</string>
-   </property>
-  </action>
-  <action name="actionExport_Birthdays">
-   <property name="text">
-    <string>Export Birthdays</string>
-   </property>
-  </action>
  </widget>
  <resources>
   <include location="Resources.qrc"/>
