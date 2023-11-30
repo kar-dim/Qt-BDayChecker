@@ -29,7 +29,7 @@ MainWindow::MainWindow(QWidget *parent)
     //populate the people list
     if (!SharedData::peopleList.isEmpty()){
         ui->listWidget->addItems(SharedData::peopleList);
-        ui->lb_found_text->setText("Birthdays found!");
+        ui->lb_found_text->setText(SharedData::HEADER_TEXT);
     }
 
     //connect the button with the music

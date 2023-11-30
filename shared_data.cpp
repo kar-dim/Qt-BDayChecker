@@ -4,3 +4,4 @@
 
 QFile SharedData:: audioSourceFile;
 QStringList SharedData:: peopleList;
+const QString SharedData::HEADER_TEXT = "Celebrations!";
