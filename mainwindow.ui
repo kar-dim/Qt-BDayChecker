@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>920</width>
-    <height>385</height>
+    <height>371</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -20,16 +20,16 @@
    <string>Birthday/Name day Checker</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">color: rgb(0, 0, 0);</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="lb_KawaiiPic">
+  <widget class="QWidget" name="central">
+   <widget class="QLabel" name="kawaiiPicLabel">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>0</y>
       <width>231</width>
-      <height>361</height>
+      <height>371</height>
      </rect>
     </property>
     <property name="text">
@@ -42,7 +42,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="lb_NarutoPic">
+   <widget class="QLabel" name="narutoPicLabel">
     <property name="geometry">
      <rect>
       <x>230</x>
@@ -61,7 +61,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="lb_found_text">
+   <widget class="QLabel" name="headerLabel">
     <property name="geometry">
      <rect>
       <x>290</x>
@@ -84,7 +84,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QListWidget" name="listWidget">
+   <widget class="QListWidget" name="people">
     <property name="geometry">
      <rect>
       <x>260</x>
@@ -104,7 +104,7 @@
 border-radius: 15px;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btn_music">
+   <widget class="QPushButton" name="musicBtn">
     <property name="geometry">
      <rect>
       <x>850</x>

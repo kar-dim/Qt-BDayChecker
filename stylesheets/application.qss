@@ -1,9 +1,9 @@
-QPushButton#btn_music {
+QPushButton#musicBtn {
     background-color: rgba(255,255,255,0.5);
     border-radius: 10px;
     border: none;
 }
 
-QPushButton#btn_music:hover {
+QPushButton#musicBtn:hover {
     background-color: rgba(255,255,255,0.7);
 }

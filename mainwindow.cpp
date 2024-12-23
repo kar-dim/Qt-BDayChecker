@@ -1,50 +1,54 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "shared_data.h"
 #include <QMediaPlayer>
 #include <QAudioOutput>
+#include <QStringList>
+#include <QString>
+#include <QFile>
+#include <QIcon>
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
+MainWindow::MainWindow(const QString musicFileName, const QStringList peopleList)
+    : QMainWindow(nullptr)
     , ui(new Ui::MainWindow)
+    , player(new QMediaPlayer)
+    , audioOutput(new QAudioOutput)
+    , audioOnIcon(QIcon(":/assets/sound.png"))
+    , audioOffIcon(QIcon(":/assets/sound_off.png"))
 {
+    setWindowFlags(Qt::Window | Qt::WindowMinimizeButtonHint | Qt::WindowCloseButtonHint);
     ui->setupUi(this);
 
-    //setup audio player for music
-    player = new QMediaPlayer;
-    audioOutput = new QAudioOutput;
     player->setAudioOutput(audioOutput);
     audioOutput->setVolume(100);
     //no music -> disable music "button"
-    if (SharedData::audioSourceFile.fileName().isNull()){
-        ui->btn_music->setEnabled(false);
-        ui->btn_music->setVisible(false);
-    } else {
-        ui->btn_music->toggle(); //turn on
-        //TODO check if audio file is really an audio file? probably done from Qt automatically
-        player->setSource(QUrl::fromLocalFile(SharedData::audioSourceFile.fileName()));
+    if (!QFile(musicFileName).exists())
+    {
+        ui->musicBtn->setEnabled(false);
+        ui->musicBtn->setVisible(false);
+    } else
+    {
+        ui->musicBtn->toggle(); //turn on
+        //TODO check if audio file is really an audio file?
+        player->setSource(QUrl::fromLocalFile(musicFileName));
         player->play();
     }
 
     //populate the people list
-    if (!SharedData::peopleList.isEmpty()){
-        ui->listWidget->addItems(SharedData::peopleList);
-        ui->lb_found_text->setText(SharedData::HEADER_TEXT);
+    if (!peopleList.isEmpty())
+    {
+        ui->people->addItems(peopleList);
+        ui->headerLabel->setText(header);
     }
 
     //connect the button with the music
-    connect(ui->btn_music, SIGNAL(toggled(bool)), this, SLOT(playOrPauseMusic(bool)));
+    connect(ui->musicBtn, SIGNAL(toggled(bool)), this, SLOT(playMusic(bool)));
 }
 
-void MainWindow::playOrPauseMusic(bool isButtonChecked) {
-    if(isButtonChecked){
-        ui->btn_music->setIcon(QIcon(":/assets/sound.png"));
-        this->player->play();
-    }
-    else {
-        ui->btn_music->setIcon(QIcon(":/assets/sound_off.png"));
-        this->player->pause();
-    }
+void MainWindow::playMusic(const bool enable)
+{
+    ui->musicBtn->setIcon(enable ? audioOnIcon : audioOffIcon);
+    if (enable) player->play();
+    else player->pause();
 }
 
 MainWindow::~MainWindow()
