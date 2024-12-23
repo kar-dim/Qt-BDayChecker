@@ -26,7 +26,6 @@ int main(int argc, char *argv[])
         return -1;
 
     //read bday file contents (main part)
-    const QRegularExpression dayFormat("\\d{1,2}/\\d{1,2}");
     const QDate currentDate = QDate::currentDate();
     QStringList peopleList;
     QTextStream bdayStream(&bdayFile);
