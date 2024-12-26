@@ -38,7 +38,7 @@ The application reads birthday data from a configuration file `config.ini` locat
    Luis Garcia 14/5
    ````
    
-4. **Run the Application:**
+3. **Run the Application:**
    - Launch the executable. The application will check today's date against the birthdays in `config.ini`.
    - If there is a match, a pop-up window will display the names of individuals with birthdays today.
-   - **NOTE** The application is mostly intented to run at OS startup, create a Shortcut of the .exe in this Windows folder: `C:\Users\{Username}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`.
+   - **NOTE** The application is mostly intented to run at OS startup, create a Shortcut of the .exe in this Windows folder: `C:\Users\{Username}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`. The application is configured to not show popup again when the machine is rebooted in the same day.
