@@ -8,8 +8,25 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    const QDate currentDate = QDate::currentDate();
 
-    //first read the config file (same folder as .exe)
+    //check if the application has run today, if yes then don't do anything
+    QFile lastRunFile(QCoreApplication::applicationDirPath() + "/last_run.txt");
+    if (lastRunFile.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        QTextStream lastRunStream(&lastRunFile);
+        while (!lastRunStream.atEnd())
+        {
+            const QDate lastRunDate = QDate::fromString(lastRunStream.readLine().simplified(), "d/M");
+            if (lastRunDate.isValid() && lastRunDate.day() == currentDate.day() && lastRunDate.month() == currentDate.month()){
+                lastRunFile.close();
+                return 0;
+            }
+        }
+        lastRunFile.close();
+    }
+
+    //read the config file (same folder as .exe)
     const INIReader inir((QCoreApplication::applicationDirPath() + "/config.ini").toStdString());
     if (inir.ParseError() < 0)
     {
@@ -26,7 +43,6 @@ int main(int argc, char *argv[])
         return -1;
 
     //read bday file contents (main part)
-    const QDate currentDate = QDate::currentDate();
     QStringList peopleList;
     QTextStream bdayStream(&bdayFile);
     while (!bdayStream.atEnd())
@@ -53,5 +69,14 @@ int main(int argc, char *argv[])
     QFile styleFile( ":/stylesheets/application.qss" );
     styleFile.open( QFile::ReadOnly );
     a.setStyleSheet(QString(styleFile.readAll()));
+
+    //write to a file to signify that we have shown the GUI for today
+    if (lastRunFile.open(QIODevice::WriteOnly | QIODevice::Text))
+    {
+        QTextStream out(&lastRunFile);
+        out << currentDate.toString("d/M");
+        lastRunFile.close();
+    }
+
     return a.exec();
 }
