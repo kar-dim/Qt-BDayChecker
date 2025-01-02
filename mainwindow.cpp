@@ -10,8 +10,8 @@
 MainWindow::MainWindow(const QString musicFileName, const QStringList peopleList)
     : QMainWindow(nullptr)
     , ui(new Ui::MainWindow)
-    , player(new QMediaPlayer)
-    , audioOutput(new QAudioOutput)
+    , player(new QMediaPlayer(this))
+    , audioOutput(new QAudioOutput(this))
     , audioOnIcon(QIcon(":/assets/sound.png"))
     , audioOffIcon(QIcon(":/assets/sound_off.png"))
 {
