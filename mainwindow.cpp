@@ -54,7 +54,5 @@ void MainWindow::playMusic(const bool enable)
 MainWindow::~MainWindow()
 {
     delete ui;
-    delete player;
-    delete audioOutput;
 }
 
