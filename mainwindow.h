@@ -1,8 +1,11 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QAudioOutput>
+#include <QIcon>
 #include <QMainWindow>
 #include <QMediaPlayer>
+#include <QString>
 #include <QStringList>
 
 QT_BEGIN_NAMESPACE

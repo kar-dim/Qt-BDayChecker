@@ -1,9 +1,15 @@
 #include "mainwindow.h"
-#include <QApplication>
-#include <QRegularExpression>
-#include <QFile>
-#include <QDate>
 #include <INIReader.h>
+#include <QApplication>
+#include <QCoreApplication>
+#include <QDate>
+#include <QFile>
+#include <QIODevice>
+#include <QRegularExpression>
+#include <QSize>
+#include <QString>
+#include <QStringList>
+#include <QTextStream>
 
 int main(int argc, char *argv[])
 {
@@ -67,7 +73,7 @@ int main(int argc, char *argv[])
     w.show();
     w.setFixedSize(QSize(920, 371));
     QFile styleFile( ":/stylesheets/application.qss" );
-    styleFile.open( QFile::ReadOnly );
+    styleFile.open(QFile::ReadOnly);
     a.setStyleSheet(QString(styleFile.readAll()));
 
     //write to a file to signify that we have shown the GUI for today

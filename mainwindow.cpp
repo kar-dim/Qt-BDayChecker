@@ -1,11 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QMediaPlayer>
 #include <QAudioOutput>
-#include <QStringList>
-#include <QString>
 #include <QFile>
 #include <QIcon>
+#include <QMainWindow>
+#include <QMediaPlayer>
+#include <QString>
+#include <QStringList>
+#include <QUrl>
+#include <Qt>
 
 MainWindow::MainWindow(const QString musicFileName, const QStringList peopleList)
     : QMainWindow(nullptr)
